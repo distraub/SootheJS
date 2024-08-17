@@ -22,13 +22,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-class SJShell {
+class SJShell { // This is the main orchestrator
   constructor () {
     this.id = 'SJShell'
   }
 }
 
-class SJComponentManager {
+class SJComponentManager { // class for managing components
   constructor () {
     this.id = 'SootheJS'
   }
@@ -38,7 +38,7 @@ class SJComponentManager {
   }
 }
 
-class SJBuilder {
+class SJBuilder { // this class abstracts js functions for dom manipulation
   constructor () {
     this.id = 'SJBuilder'
   }
@@ -48,7 +48,7 @@ class SJBuilder {
   }
 }
 
-class SJUtil {
+class SJUtil { // general utility class
   constructor () {
     this.id = 'SJUtil'
   }
@@ -58,7 +58,7 @@ class SJUtil {
   }
 }
 
-class SJData {
+class SJData { // class for getting, setting, and handling data
   constructor () {
     this.id = 'SJData'
   }
@@ -89,7 +89,7 @@ class SJData {
   }
 }
 
-class SJMessage {
+class SJMessage { // messaging class for communication between components and classes
   constructor () {
     this.id = 'SJMessage'
   }
@@ -99,7 +99,7 @@ class SJMessage {
   }
 }
 
-class SJTemplate {
+class SJTemplate { // templating class for templating render code
   constructor () {
     this.id = 'SJTemplate'
   }
@@ -109,7 +109,7 @@ class SJTemplate {
   }
 }
 
-class SJMenu {
+class SJMenu { // class to handle menus and navigation
   constructor () {
     this.id = 'SJMenu'
   }
