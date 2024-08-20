@@ -43,5 +43,3 @@ class SootheJS { // eslint-disable-line
     this.router = new SJRouter()
   }
 }
-
-const sootheJS = new SootheJS() // eslint-disable-line
