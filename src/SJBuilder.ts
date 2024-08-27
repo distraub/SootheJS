@@ -282,4 +282,85 @@ class SJBuilder { // eslint-disable-line
       element.style.width = this.getPx(value)
     })
   }
+
+  /**
+   * Set height for target
+   * @param  {any} target target element or selector
+   * @param  {number} value height as a number
+   * @returns void
+   */
+  setHeight = (target: any, value: number): void => {
+      this.getTargetsBySelector(target).forEach((node) => {
+        const element: HTMLElement = (node as HTMLElement)
+        element.style.height = this.getPx(value)
+      })
+  }
+  
+  /**
+   * Check if target has specified class
+   * @param  {any} target target element or selector
+   * @param  {string} className specified class as string
+   * @returns void
+   */
+  hasClass = (target: any, className: string): boolean => {
+    let hasClass: boolean = false
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      hasClass = element.classList.contains(className); 
+    })
+    return hasClass;
+  }
+
+  /**
+   * Add specified class to target
+   * @param  {any} target target element or selector
+   * @param  {string} className specified class as string
+   * @returns void
+   */
+  addClass = (target: any, className: string): void => {
+      this.getTargetsBySelector(target).forEach((node) => {
+        const element: HTMLElement = (node as HTMLElement)
+        element.classList.add(className);
+      })
+  }
+
+  /**
+   * Add specified class to target
+   * @param  {any} target target element or selector
+   * @param  {string} className specified class as string
+   * @returns void
+   */
+  removeClass = (target: any, className: string): void => {
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      element.classList.remove(className);
+   })
+  }
+
+  /**
+   * Set attribute for target
+   * @param  {any} target target element or selector
+   * @param  {string} attributeName name of attribute to add to target
+   * @param  {string} attributeValue value of attribute to ad to target
+   * @returns void
+   */
+  setAttribute = (target: any, attributeName: string, attributeValue: string): void => {
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      element.setAttribute(attributeName, attributeValue);
+   })
+  }
+
+  /**
+   * Toggle specified attribute for target
+   * @param  {any} target target element or selector
+   * @param  {string} attributeName name of attribute to add to target
+   * @returns void
+  */
+  toggleAttribute = (target: any, attributeName: string): void => {
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      element.toggleAttribute(attributeName);
+   })
+  }
 }
