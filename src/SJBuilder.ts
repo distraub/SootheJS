@@ -290,12 +290,12 @@ class SJBuilder { // eslint-disable-line
    * @returns void
    */
   setHeight = (target: any, value: number): void => {
-      this.getTargetsBySelector(target).forEach((node) => {
-        const element: HTMLElement = (node as HTMLElement)
-        element.style.height = this.getPx(value)
-      })
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      element.style.height = this.getPx(value)
+    })
   }
-  
+
   /**
    * Check if target has specified class
    * @param  {any} target target element or selector
@@ -306,9 +306,9 @@ class SJBuilder { // eslint-disable-line
     let hasClass: boolean = false
     this.getTargetsBySelector(target).forEach((node) => {
       const element: HTMLElement = (node as HTMLElement)
-      hasClass = element.classList.contains(className); 
+      hasClass = element.classList.contains(className)
     })
-    return hasClass;
+    return hasClass
   }
 
   /**
@@ -318,10 +318,10 @@ class SJBuilder { // eslint-disable-line
    * @returns void
    */
   addClass = (target: any, className: string): void => {
-      this.getTargetsBySelector(target).forEach((node) => {
-        const element: HTMLElement = (node as HTMLElement)
-        element.classList.add(className);
-      })
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      element.classList.add(className)
+    })
   }
 
   /**
@@ -333,8 +333,8 @@ class SJBuilder { // eslint-disable-line
   removeClass = (target: any, className: string): void => {
     this.getTargetsBySelector(target).forEach((node) => {
       const element: HTMLElement = (node as HTMLElement)
-      element.classList.remove(className);
-   })
+      element.classList.remove(className)
+    })
   }
 
   /**
@@ -347,8 +347,8 @@ class SJBuilder { // eslint-disable-line
   setAttribute = (target: any, attributeName: string, attributeValue: string): void => {
     this.getTargetsBySelector(target).forEach((node) => {
       const element: HTMLElement = (node as HTMLElement)
-      element.setAttribute(attributeName, attributeValue);
-   })
+      element.setAttribute(attributeName, attributeValue)
+    })
   }
 
   /**
@@ -360,7 +360,7 @@ class SJBuilder { // eslint-disable-line
   toggleAttribute = (target: any, attributeName: string): void => {
     this.getTargetsBySelector(target).forEach((node) => {
       const element: HTMLElement = (node as HTMLElement)
-      element.toggleAttribute(attributeName);
-   })
+      element.toggleAttribute(attributeName)
+    })
   }
 }
