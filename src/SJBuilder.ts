@@ -338,6 +338,20 @@ class SJBuilder { // eslint-disable-line
   }
 
   /**
+   * Replace a class on a target DOM element.
+   * @param  {any} target target element or selector
+   * @param  {string} oldClass CSS class to replace specified as string
+   * @param  {string} newClass new CSS class specified as string
+   * @returns void
+   */
+  replaceClass = (target: any, oldClass: string, newClass: string): void => {
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      element.classList.replace(oldClass, newClass)
+    })
+  }
+
+  /**
    * Set attribute for target
    * @param  {any} target target element or selector
    * @param  {string} attributeName name of attribute to add to target
@@ -362,5 +376,57 @@ class SJBuilder { // eslint-disable-line
       const element: HTMLElement = (node as HTMLElement)
       element.toggleAttribute(attributeName)
     })
+  }
+
+  /**
+   * Set CSS Variabl
+   * @param  {string} variable the name of the variable
+   * @param  {string} value the value of the variable
+   * @returns void
+   */
+  setCSSVariable = (variable: string, value: string): void => {
+    document.documentElement.style.setProperty(variable, value)
+  }
+
+  /**
+   * Sets a css property on a DOM element defined by target.
+   * @param  {any} target target element or selector
+   * @param  {string} name the name of the style (javascript css style ie. border-top is borderTop)
+   * @param  {string} value the value to set
+   * @returns void
+   */
+  setCSSProperty = (target: any, name: string, value: string): void => {
+    this.getTargetsBySelector(target).forEach((node) => {
+      const element: HTMLElement = (node as HTMLElement)
+      for (const key in element.style) {
+        if (key === name) {
+          element.style[key] = value
+          break
+        }
+      }
+    })
+  }
+
+  /**
+   Gets a css property on a DOM element defined by target.
+   * @param {string} target A target DOM element.
+   * @param {string} name CSS property name.
+   * @returns CSSStyleDeclaration
+   */
+  getCSSProperty = (target: any, name: string): CSSStyleDeclaration => {
+    const element: any = this.getTargetBySelector(target)
+    return element.style[name]
+  }
+
+  /**
+   * Gets a css property on a DOM element defined by target.
+   * @param {string} target A target DOM element.
+   * @param {string} name CSS property name.
+   * @returns string
+   */
+  getCSSStyle = (target: any, name: string): string => {
+    const element = this.getTargetBySelector(target)
+    const style = window.getComputedStyle(element)
+    return style.getPropertyValue(name)
   }
 }
